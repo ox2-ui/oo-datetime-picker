@@ -1,0 +1,44 @@
+Package.describe({
+  name: 'ox2:datetime-picker',
+  summary: ' Datetime picker for meteor ',
+  version: '1.0.0',
+  git: ' /* Fill me in! */ '
+});
+
+var S = 'server';
+var C = 'client';
+var CS = [C, S];
+
+Package.onUse(function(api) {
+  api.versionsFrom('1.0.2.1');
+  // Core
+  api.use([
+    'templating'
+    ]);
+  // 3rd party
+  api.use([
+    'lauricio:less-autoprefixer@1.0.7',
+    'mquandalle:jade@0.4.1',
+    'mrt:moment@2.8.1',
+    'mrt:moment-timezone@0.2.1'
+    ]);
+  api.addFiles([
+    'lib/oo-datetime-picker.jade',
+    'lib/oo-datetime-picker.js',
+    'lib/oo-datetime-picker.less',
+    'lib/oo-clock.jade',
+    'lib/oo-clock.js',
+    'lib/oo-clock.less'
+  ], 'client');
+});
+
+Package.onTest(function(api) {
+  api.use('ox2:datetime-picker@1.0.0');
+  api.use('tinytest@1.0.0');
+  api.use('templating@1.0.10');
+  api.use('blaze@2.0.4');
+  // api.use('jquery@1.0.2');
+  api.use('mquandalle:jade@0.4.1');
+  api.addFiles('tests/type-test.html', C);
+  api.addFiles('tests/type-test.js', C);
+});

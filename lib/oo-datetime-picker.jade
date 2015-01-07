@@ -1,0 +1,77 @@
+template(name="ooDatetimePicker")
+  +with pickerContext
+    .ooDatetimePicker
+      div()
+        if pickerType 'date'
+          button.js-openYearWidget
+            if activeYear
+              span Year - {{activeYear}}
+            else
+              span Year - Not set
+          button.js-openMonthWidget
+            if activeMonth
+              span Month - {{activeMonth}}
+            else
+              span Month - Not set
+          button.js-openDayWidget
+            if activeDay
+              span Day - {{activeDay}}
+            else
+              span Day - Not set
+        if pickerType 'time'
+          button.js-openHourWidget
+            span Hour - {{activeHour}}
+          button.js-openMinuteWidget
+            span Minutes - {{activeMinute}}
+      .ooDatetimePicker--widget-area
+        if activeWidget 'minuteWidget'
+          .ooDatetimePicker--hourWidget
+            button.js-setPm(class="{{ifActiveAMPM 'PM'}}")
+              span PM
+            button.js-setAM(class="{{ifActiveAMPM 'AM'}}")
+              span AM
+            button.js-inreaseMinute +
+            button.js-decreaseMinute -
+            .ooClock
+              +each minutes
+                button.js-selectMinute(minute="{{this}}" class="{{ifActiveMinute}}") {{this}}
+              +ooClock timeValue=activeMinute timeFactor=6
+        if activeWidget 'hourWidget'
+          .ooDatetimePicker--hourWidget
+            button.js-setPm(class="{{ifActiveAMPM 'PM'}}")
+              span PM
+            button.js-setAM(class="{{ifActiveAMPM 'AM'}}")
+              span AM
+            .ooClock
+              +each hours
+                button.js-selectHour(hour="{{this}}" class="{{ifActiveHour}}") {{this}}
+              +ooClock timeValue=activeHour timeFactor=30
+        if activeWidget 'dayWidget'
+          .ooDatetimePicker--dayWidget
+            h4.dayWidget--title XXXJanuary
+            .dayWidget--grid
+              +each weekdays
+                .dayWidget--cell
+                  .label {{this}}
+              +each currentDays
+                .dayWidget--cell
+                  if this
+                    .label.js-selectDay(class="{{ifActiveDay}}") {{this}}
+        if activeWidget 'monthWidget'
+          h3 month widget
+          .date-grid
+            +each months
+              .cell
+                .label.js-selectMonth(class="{{ifActiveMonth}}") {{this}}
+
+        if activeWidget 'yearWidget'
+          h3 Year widget
+          .date-grid
+            +each years
+              .cell
+                .label.js-selectYear(class="{{ifActiveYear}}") {{this}}
+      .ooDatetimePicker--bottomControls
+        button cancel
+        if (timeCorrect)
+          button.js-closeAndSave ok
+
