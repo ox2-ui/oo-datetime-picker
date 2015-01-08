@@ -22,6 +22,10 @@ Package.onUse(function(api) {
     'mrt:moment@2.8.1',
     'mrt:moment-timezone@0.2.1'
     ]);
+  // ox2
+  api.use([
+    'ox2:colors@1.0.0'
+    ]);
   api.addFiles([
     'lib/oo-datetime-picker.jade',
     'lib/oo-datetime-picker.js',
