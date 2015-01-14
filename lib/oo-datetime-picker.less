@@ -50,6 +50,72 @@
     font-weight: 400;
     color: white;
     text-align: center;
+    cursor: default;
+  }
+
+  .topControls--date {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 2px solid darken(@action, 2%);
+    padding: 1.5rem 1rem;
+
+    .date--month {
+      margin: auto;
+      min-height: 28px;
+      font-size: 3rem;
+      color: hsla(360, 100%, 100%, .6);
+      font-weight: 400;
+      cursor: pointer;
+      display: flex;
+      text-transform: uppercase;
+
+      &.is-active {
+        color: white;
+      }
+    }
+
+    .date--day {
+      margin: auto;
+      min-height: 90px;
+      font-size: 6.5rem;
+      color: hsla(360, 100%, 100%, .6);
+      font-weight: 400;
+      cursor: pointer;
+      display: flex;
+
+      &.is-active {
+        color: white;
+      }
+    }
+
+    .date--year {
+      margin: auto;
+      min-height: 28px;
+      font-size: 3rem;
+      color: hsla(360, 100%, 100%, .6);
+      font-weight: 400;
+      cursor: pointer;
+      display: flex;
+
+      &.is-active {
+        color: white;
+      }
+    }
+
+    span.unset {
+      margin: auto;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+    }
+  }
+
+  .date--column-1 {
+    display: flex;
+    flex: 4;
+  }
+  .date--column-2 {
+    display: flex;
+    flex: 3;
   }
 
   .weekday--title {
@@ -64,6 +130,7 @@
     justify-content: center;
     color: hsla(360, 100%, 100%, .6);
     font-weight: 400;
+    padding: 1.5rem 1rem;
   }
 
   .time--title {

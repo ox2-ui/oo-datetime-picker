@@ -6,21 +6,21 @@ template(name="ooDatetimePicker")
             .topControls--weekday(oo-Color="back:action")
               .weekday--title Wednesday
             .topControls--date(oo-Color="back:action")
-              button.js-openYearWidget
-                if activeYear
-                  span Year - {{activeYear}}
-                else
-                  span Year - Not set
-              button.js-openMonthWidget
-                if activeMonth
-                  span Month - {{activeMonth}}
-                else
-                  span Month - Not set
-              button.js-openDayWidget
-                if activeDay
-                  span Day - {{activeDay}}
-                else
-                  span Day - Not set
+                .date--month.js-openMonthWidget(class="{{#if activeWidget 'monthWidget'}} is-active {{/if}}")
+                  if activeMonth
+                    span {{activeMonth}}
+                  else
+                    span.unset Set month
+                .date--day.js-openDayWidget(class="{{#if activeWidget 'dayWidget'}} is-active {{/if}}")
+                  if activeDay
+                    span {{activeDay}}
+                  else
+                    span.unset Set date
+                .date--year.js-openYearWidget(class="{{#if activeWidget 'yearWidget'}} is-active {{/if}}")
+                  if activeYear
+                    span {{activeYear}}
+                  else
+                    span.unset Set year
           if pickerType 'time'
             .topControls--time(oo-Color="back:action")
               .time--title.js-openHourWidget(class="{{#if activeWidget 'hourWidget'}} is-active {{/if}}") {{activeHour}}
