@@ -71,7 +71,7 @@ template(name="ooDatetimePicker")
               .cell
                 .label.js-selectYear(class="{{ifActiveYear}}") {{this}}
       .ooDatetimePicker--bottomControls
-        button cancel
+        button(btn="neutral small material") cancel
         if (timeCorrect)
-          button.js-closeAndSave ok
+          button.js-closeAndSave(btn="action small raised material") Set
 
