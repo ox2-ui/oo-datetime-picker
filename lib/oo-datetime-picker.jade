@@ -1,28 +1,30 @@
 template(name="ooDatetimePicker")
   +with pickerContext
     .ooDatetimePicker
-      div()
-        if pickerType 'date'
-          button.js-openYearWidget
-            if activeYear
-              span Year - {{activeYear}}
-            else
-              span Year - Not set
-          button.js-openMonthWidget
-            if activeMonth
-              span Month - {{activeMonth}}
-            else
-              span Month - Not set
-          button.js-openDayWidget
-            if activeDay
-              span Day - {{activeDay}}
-            else
-              span Day - Not set
-        if pickerType 'time'
-          button.js-openHourWidget
-            span Hour - {{activeHour}}
-          button.js-openMinuteWidget
-            span Minutes - {{activeMinute}}
+      .ooDatetimePicker--topControls
+        div()
+          if pickerType 'date'
+            button.js-openYearWidget
+              if activeYear
+                span Year - {{activeYear}}
+              else
+                span Year - Not set
+            button.js-openMonthWidget
+              if activeMonth
+                span Month - {{activeMonth}}
+              else
+                span Month - Not set
+            button.js-openDayWidget
+              if activeDay
+                span Day - {{activeDay}}
+              else
+                span Day - Not set
+          if pickerType 'time'
+            .topControls--time(oo-Color="back:action")
+              .time--title.js-openHourWidget {{activeHour}}
+              .time--separator :
+              .time--title.js-openMinuteWidget {{activeMinute}}
+              .time--title-small PM
       .ooDatetimePicker--widget-area
         if activeWidget 'minuteWidget'
           .ooDatetimePicker--hourWidget.oo-animation--fadeIn
