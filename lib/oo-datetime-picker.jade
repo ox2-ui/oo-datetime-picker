@@ -69,7 +69,7 @@ template(name="ooDatetimePicker")
         if activeWidget 'dayWidget'
           .ooDatetimePicker--dayWidget.oo-animation--fadeIn
             .dayWidget--wrapper
-              h4.dayWidget--title XXXJanuary
+              h4.dayWidget--title {{calendarMonth}}
               .dayWidget--grid
                 +each weekdays
                   .dayWidget--cell
