@@ -27,8 +27,10 @@ template(name="ooDatetimePicker")
         if activeWidget 'minuteWidget'
           .ooDatetimePicker--hourWidget.oo-animation--fadeIn
             .ooClock
-              button.js-decreaseMinute.control.align-top-left(btn="neutral-tint circle" oo-Color="text:neutral-dim") -
-              button.js-inreaseMinute.control.align-top-right(btn="neutral-tint circle" oo-Color="text:neutral-dim") +
+              button.js-decreaseMinute.control.align-top-left(btn="neutral-tint circle" oo-Color="text:neutral")
+                i.ico-minus
+              button.js-inreaseMinute.control.align-top-right(btn="neutral-tint circle" oo-Color="text:neutral")
+                i.ico-plus
               if ifActiveAMPM 'PM'
                 button.js-setPm.control.align-bottom-left(btn="action  circle") PM
               else
