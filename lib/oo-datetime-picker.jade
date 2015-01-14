@@ -25,14 +25,18 @@ template(name="ooDatetimePicker")
             span Minutes - {{activeMinute}}
       .ooDatetimePicker--widget-area
         if activeWidget 'minuteWidget'
-          .ooDatetimePicker--hourWidget
-            button.js-setPm(class="{{ifActiveAMPM 'PM'}}")
-              span PM
-            button.js-setAM(class="{{ifActiveAMPM 'AM'}}")
-              span AM
-            button.js-inreaseMinute +
-            button.js-decreaseMinute -
+          .ooDatetimePicker--hourWidget.oo-animation--fadeIn
             .ooClock
+              button.js-decreaseMinute.control.align-top-left(btn="neutral-tint circle" oo-Color="text:neutral-dim") -
+              button.js-inreaseMinute.control.align-top-right(btn="neutral-tint circle" oo-Color="text:neutral-dim") +
+              if ifActiveAMPM 'PM'
+                button.js-setPm.control.align-bottom-left(btn="action  circle") PM
+              else
+                button.js-setPm.control.align-bottom-left(btn="transparent  circle" oo-Color="text:neutral-dim") PM
+              if ifActiveAMPM 'AM'
+                button.js-setAM.control.align-bottom-right(btn="action circle") AM
+              else
+                button.js-setAM.control.align-bottom-right(btn="transparent circle" oo-Color="text:neutral-dim") AM
               +each minutes
                 if ifActiveMinute
                   button(btn="circle action small" minute="{{this}}") {{this}}
@@ -40,12 +44,16 @@ template(name="ooDatetimePicker")
                   button.js-selectMinute(btn="circle transparent small" minute="{{this}}" oo-Color="text:neutral-dim") {{this}}
               +ooClock timeValue=activeMinute timeFactor=6
         if activeWidget 'hourWidget'
-          .ooDatetimePicker--hourWidget
-            button.js-setPm(class="{{ifActiveAMPM 'PM'}}")
-              span PM
-            button.js-setAM(class="{{ifActiveAMPM 'AM'}}")
-              span AM
+          .ooDatetimePicker--hourWidget.oo-animation--fadeIn
             .ooClock
+              if ifActiveAMPM 'PM'
+                button.js-setPm.control.align-bottom-left(btn="action  circle") PM
+              else
+                button.js-setPm.control.align-bottom-left(btn="transparent  circle" oo-Color="text:neutral-dim") PM
+              if ifActiveAMPM 'AM'
+                button.js-setAM.control.align-bottom-right(btn="action circle") AM
+              else
+                button.js-setAM.control.align-bottom-right(btn="transparent circle" oo-Color="text:neutral-dim") AM
               +each hours
                 if ifActiveHour
                   button(hour="{{this}}" btn="circle action small" ) {{this}}

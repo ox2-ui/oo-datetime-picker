@@ -20,6 +20,26 @@
   color: @neutral-dim;
   font-family: @roboto;
   font-weight: 300;
+
+  .align-bottom-left {
+    bottom: 5%;
+    left: 5%;
+  }
+
+  .align-bottom-right {
+    bottom: 5%;
+    right: 5%;
+  }
+
+  .align-top-left {
+    top: 5%;
+    left: 5%;
+  }
+
+  .align-top-right {
+    top: 5%;
+    right: 5%;
+  }
 }
 
 .ooDatetimePicker--bottomControls {
@@ -35,9 +55,9 @@
 
 .ooDatetimePicker--hourWidget, .ooDatetimePicker--minuteWidget {
 
-  // XXX temp
-  button {
+  .control {
     position: absolute;
+    font-weight: 400;
   }
 }
 
