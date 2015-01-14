@@ -42,30 +42,36 @@
   }
 }
 
-.ooDatetimePicker--bottomControls {
-  display: flex;
-  padding: .5rem;
-  justify-content: flex-end;
-
-  // XXX temp
-  button {
-    margin: 0 .5rem ;
-  }
-}
-
 .ooDatetimePicker--topControls {
+
+  .topControls--weekday {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: white;
+    text-align: center;
+  }
+
+  .weekday--title {
+    background-color: hsla(0, 0%, 0%, 0.05);
+    padding-top: .5rem;
+    padding-bottom: .3rem;
+  }
 
   .topControls--time {
     display: flex;
     font-size: 3.5rem;
     justify-content: center;
-    color: white;
+    color: hsla(360, 100%, 100%, .6);
     font-weight: 400;
   }
 
   .time--title {
     margin: 0 .5rem;
     cursor: pointer;
+
+    &.is-active {
+      color: white;
+    }
   }
 
   .time--separator {
@@ -82,6 +88,19 @@
 
 
 }
+
+.ooDatetimePicker--bottomControls {
+  display: flex;
+  padding: .5rem;
+  margin-top: 2rem;
+  justify-content: flex-end;
+
+  // XXX temp
+  button {
+    margin: 0 .5rem ;
+  }
+}
+
 
 .ooDatetimePicker--hourWidget, .ooDatetimePicker--minuteWidget {
 
