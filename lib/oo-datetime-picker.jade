@@ -26,7 +26,10 @@ template(name="ooDatetimePicker")
               .time--title.js-openHourWidget(class="{{#if activeWidget 'hourWidget'}} is-active {{/if}}") {{activeHour}}
               .time--separator :
               .time--title.js-openMinuteWidget(class="{{#if activeWidget 'minuteWidget'}} is-active {{/if}}") {{activeMinute}}
-              .time--title-small PM
+              if ifActiveAMPM 'PM'
+                .js-setAM.time--title-small PM
+              else
+                .js-setPm.time--title-small AM
       .ooDatetimePicker--widget-area
         if activeWidget 'minuteWidget'
           .ooDatetimePicker--hourWidget.oo-animation--fadeIn
