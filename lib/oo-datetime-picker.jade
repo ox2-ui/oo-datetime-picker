@@ -66,15 +66,16 @@ template(name="ooDatetimePicker")
               +ooClock timeValue=activeHour timeFactor=30
         if activeWidget 'dayWidget'
           .ooDatetimePicker--dayWidget.oo-animation--fadeIn
-            h4.dayWidget--title XXXJanuary
-            .dayWidget--grid
-              +each weekdays
-                .dayWidget--cell
-                  .label {{this}}
-              +each currentDays
-                .dayWidget--cell
-                  if this
-                    .label.js-selectDay(class="{{ifActiveDay}}") {{this}}
+            .dayWidget--wrapper
+              h4.dayWidget--title XXXJanuary
+              .dayWidget--grid
+                +each weekdays
+                  .dayWidget--cell
+                    .label {{this}}
+                +each currentDays
+                  .dayWidget--cell
+                    if this
+                      .label.js-selectDay(class="{{ifActiveDay}}") {{this}}
         if activeWidget 'monthWidget'
           .ooDatetimePicker--monthWidget.oo-animation--fadeIn
             .monthWidget--grid
