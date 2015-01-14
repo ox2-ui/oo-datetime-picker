@@ -34,7 +34,10 @@ template(name="ooDatetimePicker")
             button.js-decreaseMinute -
             .ooClock
               +each minutes
-                button.js-selectMinute(minute="{{this}}" class="{{ifActiveMinute}}") {{this}}
+                if ifActiveMinute
+                  button(btn="circle action small" minute="{{this}}") {{this}}
+                else
+                  button.js-selectMinute(btn="circle transparent small" minute="{{this}}" oo-Color="text:neutral-dim") {{this}}
               +ooClock timeValue=activeMinute timeFactor=6
         if activeWidget 'hourWidget'
           .ooDatetimePicker--hourWidget
@@ -44,10 +47,13 @@ template(name="ooDatetimePicker")
               span AM
             .ooClock
               +each hours
-                button.js-selectHour(hour="{{this}}" class="{{ifActiveHour}}") {{this}}
+                if ifActiveHour
+                  button(hour="{{this}}" btn="circle action small" ) {{this}}
+                else
+                  button.js-selectHour(btn="circle transparent small" hour="{{this}}" oo-Color="text:neutral-dim") {{this}}
               +ooClock timeValue=activeHour timeFactor=30
         if activeWidget 'dayWidget'
-          .ooDatetimePicker--dayWidget
+          .ooDatetimePicker--dayWidget.oo-animation--fadeIn
             h4.dayWidget--title XXXJanuary
             .dayWidget--grid
               +each weekdays
@@ -58,20 +64,19 @@ template(name="ooDatetimePicker")
                   if this
                     .label.js-selectDay(class="{{ifActiveDay}}") {{this}}
         if activeWidget 'monthWidget'
-          h3 month widget
-          .date-grid
-            +each months
-              .cell
-                .label.js-selectMonth(class="{{ifActiveMonth}}") {{this}}
-
+          .ooDatetimePicker--monthWidget.oo-animation--fadeIn
+            .monthWidget--grid
+              +each months
+                .monthWidget--cell
+                  .label.js-selectMonth(class="{{ifActiveMonth}}") {{this}}
         if activeWidget 'yearWidget'
-          h3 Year widget
-          .date-grid
-            +each years
-              .cell
-                .label.js-selectYear(class="{{ifActiveYear}}") {{this}}
+          .ooDatetimePicker--monthWidget.oo-animation--fadeIn
+            .monthWidget--grid
+              +each years
+                .monthWidget--cell
+                  .label.js-selectYear(class="{{ifActiveYear}}") {{this}}
       .ooDatetimePicker--bottomControls
-        button(btn="neutral small material") cancel
+        button(btn="neutral small material") Cancel
         if (timeCorrect)
-          button.js-closeAndSave(btn="action small raised material") Set
+          button.js-closeAndSave(btn="action small raised material") Ok
 

@@ -1,11 +1,11 @@
 template(name="ooClock")
   svg(xmlns="http://www.w3.org/2000/svg"
-       width="300" height="300"
+       width="340" height="340"
        viewBox="-110 -110 220 220"
        style="display: block; margin: 0 auto;")
     //- bounding circle
-    circle(style="stroke-width: .5px; stroke: hsla(145, 63%, 42%, 1); fill: white;"
+    circle(style="stroke-width: .5px; stroke: hsla(0, 0%, 96%, 1); fill: hsla(0, 0%, 96%, 1);"
             cx="0" cy="0" r="100")
     +with coordinates
       //- hour/minute hand
-      line(x1=x1 y1=y1 x2=x2 y2=y2 style="stroke-width: .5px; stroke: hsla(145, 63%, 42%, 1);")
+      line(x1=x1 y1=y1 x2=x2 y2=y2 style="stroke-width: 1px; stroke: hsla(145, 63%, 42%, 1);")
