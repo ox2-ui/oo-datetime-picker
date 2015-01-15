@@ -4,7 +4,7 @@ template(name="ooDatetimePicker")
       .ooDatetimePicker--topControls
           if pickerType 'date'
             .topControls--weekday(oo-Color="back:action")
-              .weekday--title Wednesday
+              .weekday--title {{activeWeekDay}}
             .topControls--date(oo-Color="back:action")
                 .date--month.js-openMonthWidget(class="{{#if activeWidget 'monthWidget'}} is-active {{/if}}")
                   if activeMonth
