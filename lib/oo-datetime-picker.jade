@@ -94,7 +94,7 @@ template(name="ooDatetimePicker")
                 .monthWidget--cell
                   .label.js-selectYear(class="{{ifActiveYear}}") {{this}}
       .ooDatetimePicker--bottomControls
-        button(btn="neutral small material") Cancel
+        button.js-cancel(btn="neutral small material") Cancel
         if (timeCorrect)
           button.js-closeAndSave(btn="action small raised material") Ok
 
