@@ -16,10 +16,11 @@
 }
 
 .ooDatetimePicker {
-  padding: 1em;
+  // padding: 1em;
   color: @neutral-dim;
   font-family: @roboto;
   font-weight: 300;
+  border-radius: 3px;
 
   .align-bottom-left {
     bottom: 5%;
@@ -44,6 +45,8 @@
 
 .ooDatetimePicker--topControls {
   margin-bottom: 1rem;
+  // border-top-left-radius: 3px;
+  // border-top-right-radius: 3px;
 
   .topControls--weekday {
     font-size: 1.5rem;
@@ -51,13 +54,15 @@
     color: white;
     text-align: center;
     cursor: default;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
   }
 
   .topControls--date {
     display: flex;
     flex-direction: row;
     border-bottom: 2px solid darken(@action, 2%);
-    padding: 1.5rem 1rem;
+    // padding: 1.5rem 1rem;
 
     .date--month {
       margin: auto;
@@ -76,8 +81,8 @@
 
     .date--day {
       margin: auto;
-      min-height: 90px;
-      font-size: 6.5rem;
+      min-height: 77px;
+      font-size: 5.5rem;
       color: hsla(360, 100%, 100%, .6);
       font-weight: 400;
       cursor: pointer;
@@ -130,7 +135,7 @@
     justify-content: center;
     color: hsla(360, 100%, 100%, .6);
     font-weight: 400;
-    padding: 1.5rem 1rem;
+    padding: 1rem;
   }
 
   .time--title {
@@ -159,7 +164,8 @@
 
 .ooDatetimePicker--bottomControls {
   display: flex;
-  padding: .5rem;
+  padding: 2rem;
+  padding-top: 0;
   margin-top: 2rem;
   justify-content: flex-end;
 
@@ -179,7 +185,7 @@
 }
 
 .ooDatetimePicker--dayWidget {
-  min-height: 340px;
+  min-height: 300px;
   display: flex;
   align-items: center;
 
@@ -198,7 +204,7 @@
 
   .dayWidget--cell {
     font-size: 1.5rem;
-    height: 40px;
+    height: 34.285px;
     text-align: center;
     background-color: white;
     color: @neutral-dim;
@@ -209,9 +215,9 @@
 
     .label {
       margin: auto;
-      padding: .7rem 0;
+      padding: .6rem 0;
       border-radius: 50%;
-      min-width: 34px;
+      min-width: 33px;
 
 
       &.is-active {
@@ -233,7 +239,7 @@
 
   .monthWidget--cell {
     font-size: 2rem;
-    height: 85px;
+    height: 75px;
     text-align: center;
     background-color: white;
     color: @neutral-dim;
