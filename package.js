@@ -1,7 +1,7 @@
 Package.describe({
   name: 'ox2:datetime-picker',
-  summary: ' Datetime picker for meteor ',
-  version: '1.0.0',
+  summary: 'TESTING_DO_NOT_USE Datetime picker for meteor ',
+  version: '1.1.0',
   git: ' /* Fill me in! */ '
 });
 
@@ -10,14 +10,14 @@ var C = 'client';
 var CS = [C, S];
 
 Package.onUse(function(api) {
-  api.versionsFrom('1.0.2.1');
+  api.versionsFrom('1.2.0.2');
   // Core
   api.use([
     'templating'
     ]);
   // 3rd party
   api.use([
-    'lauricio:less-autoprefixer@1.0.7',
+    'lauricio:less-autoprefixer@2.5.0_3',
     'mquandalle:jade@0.4.1',
     'mrt:moment@2.8.1',
     'mrt:moment-timezone@0.2.1'
@@ -27,6 +27,8 @@ Package.onUse(function(api) {
     'ox2:colors@1.0.0'
     ]);
   api.addFiles([
+    'lib/oo-color-variables.import.less',
+    'lib/oo-font-variables.import.less',
     'lib/oo-datetime-picker.jade',
     'lib/oo-datetime-picker.js',
     'lib/oo-datetime-picker.less',
