@@ -27,8 +27,6 @@ Package.onUse(function(api) {
     'ox2:colors@1.0.0'
     ]);
   api.addFiles([
-    'lib/oo-color-variables.import.less',
-    'lib/oo-font-variables.import.less',
     'lib/oo-datetime-picker.jade',
     'lib/oo-datetime-picker.js',
     'lib/oo-datetime-picker.less',
