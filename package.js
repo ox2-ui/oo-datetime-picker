@@ -1,7 +1,7 @@
 Package.describe({
   name: 'ox2:datetime-picker',
   summary: 'TESTING_DO_NOT_USE Datetime picker for meteor ',
-  version: '1.1.0',
+  version: '1.2.0',
   git: ' /* Fill me in! */ '
 });
 
