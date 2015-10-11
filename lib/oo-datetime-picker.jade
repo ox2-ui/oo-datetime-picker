@@ -4,10 +4,10 @@ template(name="ooDatetimePicker")
       .ooDatetimePicker--topControls
           if pickerType 'date'
             if duration
-              .topControls--header.--rounded-top(oo-Color="back:action")
+              .js-dayKeywordWidget.topControls--header.--rounded-top(oo-Color="back:action")
                 .header--title {{activeCalendarDay}}
             else
-              .topControls--header(oo-Color="back:action")
+              .topControls--header.--rounded-top(oo-Color="back:action")
                 .header--title {{activeWeekDay}}
             .topControls--date(oo-Color="back:action" class="{{#if duration}} --small {{/if}}")
                 .date--month.js-openMonthWidget(class="{{#if activeWidget 'monthWidget'}} is-active {{/if}}")
@@ -42,11 +42,11 @@ template(name="ooDatetimePicker")
                 .header--title For duration of:
             .js-openDurationWidget.topControls--time(oo-Color="back:action")
               if durationHours
-                .time--title {{durationHours}}
-                .time--title-small {{durationHoursPlural}}
+                .time--title(class="{{#if activeWidget 'durationWidget'}} is-active {{/if}}") {{durationHours}}
+                .time--title-small(class="{{#if activeWidget 'durationWidget'}} is-active {{/if}}") {{durationHoursPlural}}
               if durationMinutes
-                .time--title {{durationMinutes}}
-                .time--title-small min
+                .time--title(class="{{#if activeWidget 'durationWidget'}} is-active {{/if}}") {{durationMinutes}}
+                .time--title-small(class="{{#if activeWidget 'durationWidget'}} is-active {{/if}}") min
       .ooDatetimePicker--widget-area
         if activeWidget 'minuteWidget'
           .ooDatetimePicker--hourWidget.oo-animation--fadeIn
@@ -118,7 +118,7 @@ template(name="ooDatetimePicker")
               .dayKeywordWidget--cell.js-setTommorow
                 .label Tommorow
             .dayKeywordWidget--grid
-              .dayKeywordWidget--cell
+              .js-openDayWidget.dayKeywordWidget--cell
                 .label Pick a later date...
         if activeWidget 'durationWidget'
           .ooDatetimePicker--durationWidget.oo-animation--fadeIn
