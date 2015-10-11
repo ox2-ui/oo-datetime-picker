@@ -45,6 +45,7 @@
 
 .ooDatetimePicker--topControls {
   margin-bottom: 1rem;
+  user-select:none;
   // border-top-left-radius: 3px;
   // border-top-right-radius: 3px;
 
@@ -62,12 +63,15 @@
     display: flex;
     flex-direction: row;
     border-bottom: 2px solid darken(@action, 2%);
-    // padding: 1.5rem 1rem;
+    font-size: 1rem;
+
+    &.\--small {
+      font-size: .6rem;
+    }
 
     .date--month {
       margin: auto;
-      min-height: 28px;
-      font-size: 3rem;
+      font-size: 3em;
       color: hsla(360, 100%, 100%, .6);
       font-weight: 400;
       cursor: pointer;
@@ -81,12 +85,12 @@
 
     .date--day {
       margin: auto;
-      min-height: 77px;
-      font-size: 5.5rem;
+      font-size: 5.5em;
       color: hsla(360, 100%, 100%, .6);
       font-weight: 400;
       cursor: pointer;
       display: flex;
+      min-height: 1.4em;
 
       &.is-active {
         color: white;
@@ -95,8 +99,7 @@
 
     .date--year {
       margin: auto;
-      min-height: 28px;
-      font-size: 3rem;
+      font-size: 3em;
       color: hsla(360, 100%, 100%, .6);
       font-weight: 400;
       cursor: pointer;

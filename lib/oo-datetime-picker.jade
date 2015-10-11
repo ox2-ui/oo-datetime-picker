@@ -5,7 +5,7 @@ template(name="ooDatetimePicker")
           if pickerType 'date'
             .topControls--weekday(oo-Color="back:action")
               .weekday--title {{activeWeekDay}}
-            .topControls--date(oo-Color="back:action")
+            .topControls--date.--small(oo-Color="back:action")
                 .date--month.js-openMonthWidget(class="{{#if activeWidget 'monthWidget'}} is-active {{/if}}")
                   if activeMonth
                     span {{activeMonth}}
@@ -30,6 +30,10 @@ template(name="ooDatetimePicker")
                 .js-setAM.time--title-small PM
               else
                 .js-setPm.time--title-small AM
+            .topControls--time(oo-Color="back:action")
+              .time--title-small Duration
+              .time--title 30
+              .time--title-small min
       .ooDatetimePicker--widget-area
         if activeWidget 'minuteWidget'
           .ooDatetimePicker--hourWidget.oo-animation--fadeIn

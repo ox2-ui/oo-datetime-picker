@@ -13,14 +13,15 @@ Package.onUse(function(api) {
   api.versionsFrom('1.2.0.2');
   // Core
   api.use([
-    'templating'
+    'templating',
+    'ecmascript'
     ]);
   // 3rd party
   api.use([
     'lauricio:less-autoprefixer@2.5.0_3',
     'mquandalle:jade@0.4.1',
-    'mrt:moment@2.8.1',
-    'mrt:moment-timezone@0.2.1'
+    'momentjs:moment@2.10.6',
+    'aldeed:moment-timezone@0.4.0'
     ]);
   // ox2
   api.use([
