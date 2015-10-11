@@ -21,11 +21,13 @@ Package.onUse(function(api) {
     'lauricio:less-autoprefixer@2.5.0_3',
     'mquandalle:jade@0.4.1',
     'momentjs:moment@2.10.6',
-    'aldeed:moment-timezone@0.4.0'
+    'aldeed:moment-timezone@0.4.0',
     ]);
   // ox2
   api.use([
-    'ox2:colors@1.0.0'
+    'ox2:colors@1.2.0',
+    'ox2:buttons@1.2.1',
+    'ox2:typography@1.2.0'
     ]);
   api.addFiles([
     'lib/oo-datetime-picker.jade',
