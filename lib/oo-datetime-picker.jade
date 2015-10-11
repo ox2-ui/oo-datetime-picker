@@ -123,16 +123,16 @@ template(name="ooDatetimePicker")
         if activeWidget 'durationWidget'
           .ooDatetimePicker--durationWidget.oo-animation--fadeIn
             .durationWidget--grid
-              button.js-durationHourPlus(btn="action")
+              button.js-durationHourPlus(btn="action full-width")
                 i.ico-chevron-up
               h3.label {{durationHours}} {{durationHoursPlural}}
-              button.js-durationHourMinus(btn="action")
+              button.js-durationHourMinus(btn="action full-width")
                 i.ico-chevron-down
             .durationWidget--grid
-              button.js-durationMinutePlus(btn="action")
+              button.js-durationMinutePlus(btn="action full-width")
                 i.ico-chevron-up
               h3.label {{durationMinutes}} min
-              button.js-durationMinuteMinus(btn="action")
+              button.js-durationMinuteMinus(btn="action full-width")
                 i.ico-chevron-down
       .ooDatetimePicker--bottomControls
         button.js-cancel(btn="neutral small material") Cancel
