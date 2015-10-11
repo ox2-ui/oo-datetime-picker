@@ -3,11 +3,13 @@ template(name="ooDatetimePicker")
     .ooDatetimePicker(oo-Color="back:white")
       .ooDatetimePicker--topControls
           if pickerType 'date'
-            //- .topControls--header(oo-Color="back:action")
-            //-   .header--title {{activeWeekDay}}
-            .topControls--header.--rounded-top(oo-Color="back:action")
-              .header--title {{activeCalendarDay}}
-            .topControls--date.--small(oo-Color="back:action")
+            if duration
+              .topControls--header.--rounded-top(oo-Color="back:action")
+                .header--title {{activeCalendarDay}}
+            else
+              .topControls--header(oo-Color="back:action")
+                .header--title {{activeWeekDay}}
+            .topControls--date(oo-Color="back:action" class="{{#if duration}} --small {{/if}}")
                 .date--month.js-openMonthWidget(class="{{#if activeWidget 'monthWidget'}} is-active {{/if}}")
                   if activeMonth
                     span {{activeMonth}}
@@ -24,8 +26,9 @@ template(name="ooDatetimePicker")
                   else
                     span.unset Set year
           if pickerType 'time'
-            .topControls--header(oo-Color="back:action")
-              .header--title Starts at:
+            if duration
+              .topControls--header(oo-Color="back:action")
+                .header--title Starts at:
             .topControls--time(oo-Color="back:action")
               .time--title.js-openHourWidget(class="{{#if activeWidget 'hourWidget'}} is-active {{/if}}") {{activeHour}}
               .time--separator :
@@ -34,9 +37,10 @@ template(name="ooDatetimePicker")
                 .js-setAM.time--title-small PM
               else
                 .js-setPm.time--title-small AM
-            .topControls--header(oo-Color="back:action")
-              .header--title For duration of:
-            .topControls--time(oo-Color="back:action")
+            if duration
+              .topControls--header(oo-Color="back:action")
+                .header--title For duration of:
+            .js-openDurationWidget.topControls--time(oo-Color="back:action")
               if durationHours
                 .time--title {{durationHours}}
                 .time--title-small {{durationHoursPlural}}
@@ -44,90 +48,92 @@ template(name="ooDatetimePicker")
                 .time--title {{durationMinutes}}
                 .time--title-small min
       .ooDatetimePicker--widget-area
-        //- if activeWidget 'minuteWidget'
-        //-   .ooDatetimePicker--hourWidget.oo-animation--fadeIn
-        //-     .ooClock
-        //-       button.js-decreaseMinute.control.align-top-left(btn="neutral-tint circle" oo-Color="text:neutral")
-        //-         i.ico-minus
-        //-       button.js-inreaseMinute.control.align-top-right(btn="neutral-tint circle" oo-Color="text:neutral")
-        //-         i.ico-plus
-        //-       if ifActiveAMPM 'PM'
-        //-         button.js-setPm.control.align-bottom-left(btn="action  circle") PM
-        //-       else
-        //-         button.js-setPm.control.align-bottom-left(btn="transparent  circle" oo-Color="text:neutral-dim") PM
-        //-       if ifActiveAMPM 'AM'
-        //-         button.js-setAM.control.align-bottom-right(btn="action circle") AM
-        //-       else
-        //-         button.js-setAM.control.align-bottom-right(btn="transparent circle" oo-Color="text:neutral-dim") AM
-        //-       +each minutes
-        //-         if ifActiveMinute
-        //-           button(btn="circle action small" minute="{{this}}") {{this}}
-        //-         else
-        //-           button.js-selectMinute(btn="circle transparent small" minute="{{this}}" oo-Color="text:neutral-dim") {{this}}
-        //-       +ooClock timeValue=activeMinute timeFactor=6
-        //- if activeWidget 'hourWidget'
-        //-   .ooDatetimePicker--hourWidget.oo-animation--fadeIn
-        //-     .ooClock
-        //-       if ifActiveAMPM 'PM'
-        //-         button.js-setPm.control.align-bottom-left(btn="action  circle") PM
-        //-       else
-        //-         button.js-setPm.control.align-bottom-left(btn="transparent  circle" oo-Color="text:neutral-dim") PM
-        //-       if ifActiveAMPM 'AM'
-        //-         button.js-setAM.control.align-bottom-right(btn="action circle") AM
-        //-       else
-        //-         button.js-setAM.control.align-bottom-right(btn="transparent circle" oo-Color="text:neutral-dim") AM
-        //-       +each hours
-        //-         if ifActiveHour
-        //-           button(hour="{{this}}" btn="circle action small" ) {{this}}
-        //-         else
-        //-           button.js-selectHour(btn="circle transparent small" hour="{{this}}" oo-Color="text:neutral-dim") {{this}}
-        //-       +ooClock timeValue=activeHour timeFactor=30
-        //- if activeWidget 'dayWidget'
-        //-   .ooDatetimePicker--dayWidget.oo-animation--fadeIn
-        //-     .dayWidget--wrapper
-        //-       h4.dayWidget--title {{calendarMonth}}
-        //-       .dayWidget--grid
-        //-         +each weekdays
-        //-           .dayWidget--cell
-        //-             .label {{this}}
-        //-         +each currentDays
-        //-           .dayWidget--cell
-        //-             if this
-        //-               .label.js-selectDay(class="{{ifActiveDay}}") {{this}}
-        //- if activeWidget 'monthWidget'
-        //-   .ooDatetimePicker--monthWidget.oo-animation--fadeIn
-        //-     .monthWidget--grid
-        //-       +each months
-        //-         .monthWidget--cell
-        //-           .label.js-selectMonth(class="{{ifActiveMonth}}") {{this}}
-        //- if activeWidget 'yearWidget'
-        //-   .ooDatetimePicker--monthWidget.oo-animation--fadeIn
-        //-     .monthWidget--grid
-        //-       +each years
-        //-         .monthWidget--cell
-        //-           .label.js-selectYear(class="{{ifActiveYear}}") {{this}}
-        //- .ooDatetimePicker--dayKeywordWidget.oo-animation--fadeIn
-        //-   .dayKeywordWidget--grid
-        //-     .dayKeywordWidget--cell.js-setToday
-        //-       .label Today
-        //-     .dayKeywordWidget--cell.js-setTommorow
-        //-       .label Tommorow
-        //-   .dayKeywordWidget--grid
-        //-     .dayKeywordWidget--cell
-        //-       .label Pick a later date...
-        .ooDatetimePicker--durationWidget.oo-animation--fadeIn
-          .durationWidget--grid
-            button.js-durationHourPlus(btn="action")
-              i.ico-chevron-up
-            h3.label {{durationHours}} {{durationHoursPlural}}
-            button.js-durationHourMinus(btn="action")
-              i.ico-chevron-down
-          .durationWidget--grid
-            button.js-durationMinutePlus(btn="action")
-              i.ico-chevron-up
-            h3.label {{durationMinutes}} min
-            button.js-durationMinuteMinus(btn="action")
-              i.ico-chevron-down
+        if activeWidget 'minuteWidget'
+          .ooDatetimePicker--hourWidget.oo-animation--fadeIn
+            .ooClock
+              button.js-decreaseMinute.control.align-top-left(btn="neutral-tint circle" oo-Color="text:neutral")
+                i.ico-minus
+              button.js-inreaseMinute.control.align-top-right(btn="neutral-tint circle" oo-Color="text:neutral")
+                i.ico-plus
+              if ifActiveAMPM 'PM'
+                button.js-setPm.control.align-bottom-left(btn="action  circle") PM
+              else
+                button.js-setPm.control.align-bottom-left(btn="transparent  circle" oo-Color="text:neutral-dim") PM
+              if ifActiveAMPM 'AM'
+                button.js-setAM.control.align-bottom-right(btn="action circle") AM
+              else
+                button.js-setAM.control.align-bottom-right(btn="transparent circle" oo-Color="text:neutral-dim") AM
+              +each minutes
+                if ifActiveMinute
+                  button(btn="circle action small" minute="{{this}}") {{this}}
+                else
+                  button.js-selectMinute(btn="circle transparent small" minute="{{this}}" oo-Color="text:neutral-dim") {{this}}
+              +ooClock timeValue=activeMinute timeFactor=6
+        if activeWidget 'hourWidget'
+          .ooDatetimePicker--hourWidget.oo-animation--fadeIn
+            .ooClock
+              if ifActiveAMPM 'PM'
+                button.js-setPm.control.align-bottom-left(btn="action  circle") PM
+              else
+                button.js-setPm.control.align-bottom-left(btn="transparent  circle" oo-Color="text:neutral-dim") PM
+              if ifActiveAMPM 'AM'
+                button.js-setAM.control.align-bottom-right(btn="action circle") AM
+              else
+                button.js-setAM.control.align-bottom-right(btn="transparent circle" oo-Color="text:neutral-dim") AM
+              +each hours
+                if ifActiveHour
+                  button(hour="{{this}}" btn="circle action small" ) {{this}}
+                else
+                  button.js-selectHour(btn="circle transparent small" hour="{{this}}" oo-Color="text:neutral-dim") {{this}}
+              +ooClock timeValue=activeHour timeFactor=30
+        if activeWidget 'dayWidget'
+          .ooDatetimePicker--dayWidget.oo-animation--fadeIn
+            .dayWidget--wrapper
+              h4.dayWidget--title {{calendarMonth}}
+              .dayWidget--grid
+                +each weekdays
+                  .dayWidget--cell
+                    .label {{this}}
+                +each currentDays
+                  .dayWidget--cell
+                    if this
+                      .label.js-selectDay(class="{{ifActiveDay}}") {{this}}
+        if activeWidget 'monthWidget'
+          .ooDatetimePicker--monthWidget.oo-animation--fadeIn
+            .monthWidget--grid
+              +each months
+                .monthWidget--cell
+                  .label.js-selectMonth(class="{{ifActiveMonth}}") {{this}}
+        if activeWidget 'yearWidget'
+          .ooDatetimePicker--monthWidget.oo-animation--fadeIn
+            .monthWidget--grid
+              +each years
+                .monthWidget--cell
+                  .label.js-selectYear(class="{{ifActiveYear}}") {{this}}
+        if activeWidget 'dayKeywordWidget'
+          .ooDatetimePicker--dayKeywordWidget.oo-animation--fadeIn
+            .dayKeywordWidget--grid
+              .dayKeywordWidget--cell.js-setToday
+                .label Today
+              .dayKeywordWidget--cell.js-setTommorow
+                .label Tommorow
+            .dayKeywordWidget--grid
+              .dayKeywordWidget--cell
+                .label Pick a later date...
+        if activeWidget 'durationWidget'
+          .ooDatetimePicker--durationWidget.oo-animation--fadeIn
+            .durationWidget--grid
+              button.js-durationHourPlus(btn="action")
+                i.ico-chevron-up
+              h3.label {{durationHours}} {{durationHoursPlural}}
+              button.js-durationHourMinus(btn="action")
+                i.ico-chevron-down
+            .durationWidget--grid
+              button.js-durationMinutePlus(btn="action")
+                i.ico-chevron-up
+              h3.label {{durationMinutes}} min
+              button.js-durationMinuteMinus(btn="action")
+                i.ico-chevron-down
       .ooDatetimePicker--bottomControls
         button.js-cancel(btn="neutral small material") Cancel
         if (timeCorrect)
