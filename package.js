@@ -21,11 +21,7 @@ Package.onUse(function(api) {
     'lauricio:less-autoprefixer@2.5.0_3',
     'mquandalle:jade@0.4.1',
     'momentjs:moment@2.10.6',
-<<<<<<< HEAD
     'aldeed:moment-timezone@0.4.0'
-=======
-    'aldeed:moment-timezone@0.4.0',
->>>>>>> pick-duration
     ]);
   // ox2
   api.use([
