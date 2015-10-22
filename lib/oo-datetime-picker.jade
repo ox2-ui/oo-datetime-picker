@@ -97,7 +97,7 @@ template(name="ooDatetimePicker")
                 +each currentDays
                   .dayWidget--cell
                     if this
-                      .label.js-selectDay(class="{{ifActiveDay}}") {{this}}
+                      .label(class="{{ifActiveDay}} {{#if pastDate}} is-disabled{{else}} js-selectDay{{/if}}") {{this}}
         if activeWidget 'monthWidget'
           .ooDatetimePicker--monthWidget.oo-animation--fadeIn
             .monthWidget--grid
