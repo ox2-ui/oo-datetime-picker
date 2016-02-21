@@ -1,7 +1,7 @@
 Package.describe({
   name: 'ox2:datetime-picker',
   summary: 'TESTING_DO_NOT_USE Datetime picker for meteor ',
-  version: '1.9.0',
+  version: '1.10.0',
   git: ' /* Fill me in! */ '
 });
 
@@ -14,12 +14,12 @@ Package.onUse(function(api) {
   // Core
   api.use([
     'templating',
-    'ecmascript'
+    'ecmascript',
+    'less'
     ]);
   // 3rd party
   api.use([
-    'lauricio:less-autoprefixer@2.5.0_3',
-    'mquandalle:jade@0.4.1',
+    'mquandalle:jade@0.4.9',
     'momentjs:moment@2.10.6',
     'aldeed:moment-timezone@0.4.0'
     ]);
