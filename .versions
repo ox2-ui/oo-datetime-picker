@@ -26,7 +26,7 @@ id-map@1.0.4
 jquery@1.11.4
 lauricio:less-autoprefixer@2.5.0_3
 less@2.5.1
-local-test:ox2:datetime-picker@1.10.1
+local-test:ox2:datetime-picker@1.11.0
 logging@1.0.8
 meteor@1.1.10
 minifiers@1.1.7
@@ -41,7 +41,7 @@ observe-sequence@1.0.7
 ordered-dict@1.0.4
 ox2:buttons@1.2.1
 ox2:colors@1.2.0
-ox2:datetime-picker@1.10.1
+ox2:datetime-picker@1.11.0
 ox2:typography@1.2.0
 promise@0.5.1
 random@1.0.5
